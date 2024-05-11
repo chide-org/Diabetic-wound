@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>DW巨噬细胞调控</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><blockquote><p><span>从上一篇文章的讨论我们已经知道：</span></p><ul><li><p><span>巨噬细胞从M1到M2的转化失败是DW伤口迟迟不能愈合的关键因素之一</span></p></li><li><p><span>IL4，IL-10，Glucocorticoids，Prostaglandins (PGs) 和 modulators of glucose and lipid metabolism诱导M2转化</span></p></li><li><p><span>pro-inflammatory cytokines，interferons (IFNs)，PAMPs 和 DAMPs诱导M1转化</span></p></li><li><p><span>抗菌作用，ROS清除能力或减少伤口炎症可能会诱导M2转化</span></p></li><li><p><span>相关检测手段：免疫荧光染色法可以检测M2巨噬细胞的特征性标志物CD206；酶联免疫吸附试验（ELISA）可以检测相关细胞因子的分泌；Masson三色染色可以检测胶原蛋白形成和沉积；平板计数法可以测量抗菌能力。</span></p></li></ul><p><span>这篇文章的目的是探寻巨噬细胞转化失败的原因，首先看看目前有哪些诱导巨噬细胞M2转化的方案极其效果，随后利用巨噬细胞调节通路进行解释，最后提出几种比较有希望的诱导方案</span></p></blockquote><p>&nbsp;</p><h2 id='巨噬细胞调控通路'><span>巨噬细胞调控通路</span></h2><p><span>classical pathway : interferon-γ-dependent activation of macrophages by T helper 1 (TH1)-type responses</span></p><p><span>come from : </span><a href='https://www.nature.com/articles/nri978'><span>Alternative activation of macrophages | Nature Reviews Immunology</span></a></p><p><span>alternative pathway : macrophage activation by the TH2-type cytokines interleukin-4 (IL-4) and IL-13 </span></p><p><span>come from : </span><a href='https://www.nature.com/articles/nri978'><span>Alternative activation of macrophages | Nature Reviews Immunology</span></a></p><p><span>此后的研究表明，巨噬细胞的活化取决于特异性活化的 T 辅助细胞 1（T</span><sub><span>H</span></sub><span>1）型淋巴细胞和自然杀伤细胞（NK）的产物，特别是interferon-γ（IFN-γ），以及由抗原递呈细胞（APC）产生的 interleukin-12（IL-12）和 IL-18 等细胞因子网络。</span></p><ul><li><p><span>TH1免疫应答是指TH1细胞针对诸如细菌和病毒等细胞内微生物所产生的细胞因子介导的免疫应答。</span></p></li><li><p><span>TH2免疫应答是指TH2细胞针对大型细胞外微生物所产生的细胞因子介导的免疫应答。</span></p></li><li><p><span>TH1免疫反应导致细胞介导的免疫，而TH2 免疫反应导致体液免疫。</span></p></li><li><p><span>过多的TH1免疫反应会导致自身免疫反应，导致不受控制的组织损伤。TH2免疫反应则会抵消TH1免疫反应。</span></p></li></ul><p><strong><span>IFN-γ，IL-2，IL-18 -&gt; macrophage activation</span></strong></p><p><strong><span>IL-10-&gt;真正地关闭呼吸爆发和炎症细胞因子（尤其是肿瘤坏死因子TNF）的产生来调节巨噬细胞的活性，减轻免疫系统对外部刺激的过度反应</span></strong></p><p><strong><span>IL-4 , IL-13</span></strong><span> -&gt; upregulate expression of the </span><strong><span>mannose receptor</span></strong><span> and </span><strong><span>MHC class II molecules</span></strong><span> by macrophages -&gt; stimulates </span><strong><span>endocytosis</span></strong><span> and antigen presentation + induce the expression of selective chemokines(</span><strong><span>MDC/CCL22 , TARC/CCL17</span></strong><span>) and </span><strong><span>intracellular enzymes</span></strong><span>(cell recruitment and granuloma formation) -&gt; </span><strong><span>T</span><sub><span>H</span></sub><span>2型免疫应答相关</span></strong></p><p><strong><span>IL—4和IL—13对体外巨噬细胞的作用</span></strong></p><p><span>IL-4对LPS(脂多糖)诱导的促炎细胞因子（如TNF）表达和呼吸爆发的抑制是中度的，与IL—10对这些活性和MHC II类表达的强效抑制不同。</span></p><p><span>IL-13对LPS诱导的一氧化氮合酶2（NOS2）的抑制作用也是中等的，而IL—10和IFN—γ则具有显著的抑制作用。</span></p><p><span>IL-4和IL-13在体外和体内增加IL-1诱饵受体和IL-1受体α链的表达，从而抵消IL-1的促炎作用。</span></p><p><span>它们还上调CCL 22的表达和释放（被IFN-γ和IL-10抑制），CCL 22吸引CC-趋化因子受体4（CCR 4） + T</span><sub><span>H</span></sub><span>细胞，从而放大极化的T</span><sub><span>H</span></sub><span>2应答。</span></p><p><span>IFN-γ诱导的蛋白10（IP-10; CXCL 10）显示出对T H 1细胞的一些偏好，IL-10可以将CCR 5的功能与增强的表达解偶联，这与其抗炎功能一致。</span></p><p><span>IL-4和IL-13增强CXCR 1和CXCR 2的功能，并使单核细胞对IL-8（CXCL 8）和相关趋化因子高度应答。</span></p><p><span>M1巨噬细胞更容易被IFN-γ或LPS活化以产生NO，NO抑制细胞分裂</span></p><p><span>LPS刺激M2巨噬细胞增加精氨酸代谢为鸟氨酸，鸟氨酸可以刺激细胞分裂（通过多胺）</span></p><blockquote><p><span>come from : </span><a href='https://pubmed.ncbi.nlm.nih.gov/10843666/'><span>M-1/M-2 macrophages and the Th1/Th2 paradigm - PubMed (nih.gov)</span></a></p></blockquote><h4 id='诱导'><span>诱导</span></h4><p><strong><span>IFN-γ , TNF-α , LPS , GM-CSF</span></strong><span> 可诱导产生经典活化的</span><strong><span>M1</span></strong><span>型巨噬细胞，并释放促炎因子 </span><strong><span>IL-6 , IL-12 , IL-23 , IL-1β , TNF-α , ROS , NO...</span></strong></p><p><span>M1型巨噬细胞在炎症早期承担着促炎作用，具有强大的抗感染、抗肿瘤、清除凋亡细胞及坏死组织的能力，可通过抗原提呈介导Th1型免疫反应杀伤病原，保护机体。</span></p><p><strong><span>IL-4 , IL-13 , IL-10 , TGF-β...</span></strong><span>可诱导产生替代激活的</span><strong><span>M2</span></strong><span>型巨噬细胞，并释放抑炎因子</span><strong><span>IL-1、IL-10和TGF-β...</span></strong></p><p><span>M2型巨噬细胞可介导抑炎反应和Th2型免疫应答，起着抑制炎症反应及组织修复的作用。但实际上不同刺激诱导的M2表型也具有不同的作用，如分别受到IL-4/IL-13、免疫复合物和脂多糖/IL-1受体、IL-10及Toll样受体的刺激M2a、M2b、M2c和M2d细胞。</span></p><ul><li><p><strong><span>M2a</span></strong><span>巨噬细胞，又称伤口愈合巨噬细胞，由</span><strong><span>IL-4和IL-13</span></strong><span>诱导，并表达高水平的甘露糖受体（MR，也称为CD 206）、诱饵IL-1受体（IL-R）和CCL 17，它们分泌促纤维化因子，如TGF-β、胰岛素样生长因子（IGF）和纤连蛋白，以促进</span><strong><span>组织修复</span></strong><span>。</span></p></li><li><p><span>M2b巨噬细胞，又称调节性巨噬细胞，可在联合暴露于IC和TLR激动剂或IL—1R激动剂后诱导，具有强大的抗炎和免疫抑制作用</span></p></li><li><p><strong><span>M2c</span></strong><span>巨噬细胞，又称灭活巨噬细胞，由</span><strong><span>IL-10</span></strong><span>通过IL-10 R激活信号转导子和转录激活子3（STAT 3）诱导，与免疫反应抑制和</span><strong><span>组织重塑</span></strong><span>相关</span></p></li><li><p><span>M2d巨噬细胞，有时也称为肿瘤相关巨噬细胞（TAM），通过</span><strong><span>TLR配体和A2腺苷受体（A2 R）激动剂或IL-6</span></strong><span>共刺激诱导，高IL-10、TGF-β和血管内皮生长因子（VEGF），低IL-12、TNF-α和IL-1β的产生，参与</span><strong><span>血管生成</span></strong><span>和肿瘤进展（</span><code>TLR ligands and A2 adenosine receptor (A2R) agonists or by IL‐6</code><span>）</span></p></li></ul><p><img src="./DW巨噬细胞调控.assets/image-20240511105410545.png" alt="image-20240511105410545" style="zoom:67%;" /></p><p><img src="./DW巨噬细胞调控.assets/image-20240511110309956.png" alt="image-20240511110309956" style="zoom:50%;" /></p><p><span>同时还提供了诱导与检测巨噬细胞的一些方案：qPCR、Western Blot、ELISA和流式检测等方法检测极化后的M1和M2型巨噬细胞标志物</span></p><p><img src="./DW巨噬细胞调控.assets/image-20240511113800190.png" alt="image-20240511113800190" style="zoom: 33%;" /></p><p><span>与巨噬细胞极化相关的详细信号通路</span><a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9280632/table/T1/?report=objectonly' target='_blank' class='url'>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9280632/table/T1/?report=objectonly</a><span>，这里不做深究</span></p><blockquote><p><span>come from :</span></p><p><a href='https://zhuanlan.zhihu.com/p/650764718'><span>听说你想研究巨噬细胞极化？ - 知乎 (zhihu.com)</span></a></p><p><a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9280632/'><span>在癌症免疫治疗中塑造肿瘤相关大分子抗体的极化- PMC --- Shaping Polarization Of Tumor-Associated Macrophages In Cancer Immunotherapy - PMC (nih.gov)</span></a></p><p><a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6476302/'><span>巨噬细胞极化在生理和病理妊娠- PMC --- Macrophage Polarization in Physiological and Pathological Pregnancy - PMC (nih.gov)</span></a></p></blockquote><h4 id='ifn-γ'><span>IFN-γ</span></h4><p><span>干扰素-γ（Interferon-γ）是一种对多种免疫细胞具有免疫调节作用的多效性细胞因子。IFN-γ缺乏的小鼠巨噬细胞抗菌产物的产生受损，巨噬细胞主要组织相容性复合物II类抗原的表达减少。明确证明IFN—γ是巨噬细胞抗微生物活性的&quot;经典激活剂&quot;，是MHC II类分子和NOS 2表达的诱导剂。干扰素-γ（IFN-γ）通过驱动 Janus 酪氨酸激酶（JAK）/转录信号转导和激活因子依赖性诱导转录和 PKR 依赖性抑制翻译来激活巨噬细胞。</span><code>Interferon-gamma (IFN-gamma) activates macrophages by driving Janus tyrosine kinase (JAK)/signal transducer and activator of transcription-dependent induction of transcription and PKR-dependent suppression of translation.</code></p><blockquote><p><span>come from : </span><a href='https://pubmed.ncbi.nlm.nih.gov/11602641/'><span>Reprogramming of the macrophage transcriptome in response to interferon-gamma and Mycobacterium tuberculosis: signaling roles of nitric oxide synthase-2 and phagocyte oxidase - PubMed (nih.gov)</span></a></p></blockquote><p>&nbsp;</p><p>&nbsp;</p><h2 id='已知诱导方案'><span>已知诱导方案</span></h2><h4 id='protocatechuic-aldehydepa通过抗菌抗炎抗ros作用诱导'><span>Protocatechuic aldehyde(PA)通过抗菌抗炎抗ROS作用诱导</span></h4><p><span>come from : </span><a href='https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202206771'><span>All‐Natural Immunomodulatory Bioadhesive Hydrogel Promotes Angiogenesis and Diabetic Wound Healing by Regulating Macrophage Heterogeneity - Fu - 2023 - Advanced Science - Wiley Online Library</span></a></p><h4 id='gm-csf诱导同时提高cd31新生血管和integrin-α3胶原生成水平'><span>GM-CSF诱导，同时提高CD31(新生血管)和integrin α3(胶原生成)水平</span></h4><p><span>come from : </span><a href='https://www.sciencedirect.com/science/article/pii/S0142961220305329'><span>ROS清除水凝胶促进细菌感染的糖尿病伤口愈合- ScienceDirect --- ROS-scavenging hydrogel to promote healing of bacteria infected diabetic wounds - ScienceDirect</span></a></p></div></div>
+</body>
+</html>

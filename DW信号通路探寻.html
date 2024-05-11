@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>DW信号通路探寻</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><blockquote><p><span>目前我们已经知道，糖尿病伤口难以愈合的原因是伤口的炎症期因为某些原因无法结束。于是现在我们聚焦炎症期，看看慢性伤口与正常伤口有何不同，有哪些信号通路参与这一现象的形成，以及一些通过改善信号通路来治疗伤口的研究</span></p></blockquote><p>&nbsp;</p><h2 id='有何不同'><span>有何不同</span></h2><blockquote><p><span>Harmful inflammatory cycle of chronic wounds. Chronic wounds that are stagnant in the inflammatory phase may cause abnormal accumulation of inflammatory cells in the wound, causing the amplification of the inflammatory response. Excessive inflammatory cells lead to the destruction of the ECM and the degradation of growth factors and their receptors, which in turn intensifies the production of ROS and disrupts the redox balance of cells. ROS further enhances the degradation of the ECM, eventually leading to severe cell membrane damage and repeated wound contusions. In addition, delayed wound healing increases the risk of wound infection and thus causes wound deterioration.</span></p><p><span>comf from : </span><a href='https://pubs.rsc.org/en/content/articlehtml/2021/bm/d0bm01747g'><span>Advances of hydrogel dressings in diabetic wounds - Biomaterials Science (RSC Publishing) DOI:10.1039/D0BM01747G</span></a></p></blockquote><p><span>慢性伤口很难像正常伤口愈合过程那样有组织地及时愈合。它们主要表现为</span><strong><span>促炎因子调节失衡</span></strong><span>、</span><strong><span>活性氧（ROS）过多</span></strong><span>、</span><strong><span>衰老细胞</span></strong><span>和</span><strong><span>蛋白酶</span></strong><span>产生，以及真皮或表皮细胞难以应对</span><strong><span>反复的伤口挫伤</span></strong><span>，有时还伴有</span><strong><span>持续感染</span></strong></p><p><img src="./DW信号通路探寻.assets/d0bm01747g-f2_hi-res.gif" referrerpolicy="no-referrer" alt="img"></p><p><span>这是慢性伤口的有害炎症循环</span></p><p><span>ECM(extracellular matrix)是细胞外基质</span></p><p><span>M1巨噬细胞和M2巨噬细胞之间的转化失败导致伤口中炎性细胞的异常积累，引起炎症反应的放大。</span></p><p><span>过多的炎症细胞导致ECM的破坏和生长因子及其受体的降解，这反过来又加剧了ROS的产生并破坏了细胞的氧化还原平衡。ROS进一步增强ECM的降解，最终导致严重的细胞膜损伤和反复的伤口挫伤。此外，延迟的伤口愈合增加了伤口感染的风险，从而导致伤口恶化。</span></p><p><strong><span>这篇文章指出巨噬细胞的转化失败导致炎症反应放大是导致炎症期无法结束的原因之一，接下来重点看巨噬细胞</span></strong></p><p>&nbsp;</p><h2 id='信号通路'><span>信号通路</span></h2><p><strong><span>The roles of macrophage in wound healing.</span></strong></p><blockquote><p><span>In the early phase of wound repair, upon exposure to pro-inflammatory cytokines, interferons (IFNs), PAMPs or DAMPs, infiltrating monocytes and resident macrophages are activated and mainly acquire a </span><strong><span>pro-inflammatory M1 phenotype</span></strong><span>. They perform phagocytosis of microbes, scavenge cellular debris and produce pro-inflammatory mediators. </span></p><p><span>Later during healing process, IL4, IL-10, Glucocorticoids, Prostaglandins (PGs) and modulators of glucose and lipid metabolism induce macrophages to transit to a </span><strong><span>reparative M2 phenotype</span></strong><span>, which secret anti-inflammatory mediators and growth factors. Macrophages also remove neutrophils in the wounds by phagocytosis, a central element to induce the M1-M2 phenotype switch of macrophages. </span></p><p><em><span>come from : </span><a href='https://link.springer.com/article/10.1007/s00018-016-2268-0'><span>Transition from inflammation to proliferation: a critical step during wound healing | Cellular and Molecular Life Sciences (springer.com)</span></a></em></p></blockquote><blockquote><p><span>Macrophages are one of the key cell types responsible for maintaining their homeostasis and regulating inflammatory and regenerative processes. They are present in all organs and tissues , their circulating form is called a monocyte and the resident form is called a macrophage.</span></p><p><span>Macrophages are an extremely heterogeneous group of cells with a highly variable receptor profile and functional activity due to their plasticity. </span></p><p><span>come from : </span><a href='https://www.mdpi.com/2227-9059/8/10/400'><span>Biomedicines | Free Full-Text | Tissue-Specific Role of Macrophages in Noninfectious Inflammatory Disorders (mdpi.com)</span></a></p></blockquote><h4 id='macrophage巨噬细胞'><strong><span>macrophage(巨噬细胞)</span></strong></h4><ul><li><p><span>功能：维持体内平衡、调节炎症和再生过程</span></p></li><li><p><span>分布：存在于所有器官和组织中</span></p></li><li><p><span>命名：循环形式称为monocyte ，常驻形式称为macrophage</span></p></li><li><p><span>特点：巨噬细胞是一种极其异质的细胞群，由于其可塑性，具有高度可变的受体谱和功能活性，M1与M2只是其多种形态中的两种</span></p></li></ul><h4 id='pro-inflammatory-m1-phenotype'><strong><span>pro-inflammatory M1 phenotype</span></strong></h4><ul><li><p><span>由pro-inflammatory cytokines，interferons (IFNs)，PAMPs 和 DAMPs诱导</span></p></li><li><p><span>具有清除微生物，吞噬细胞碎片，释放促炎因子的功能</span></p></li></ul><h4 id='reparative-m2-phenotype'><strong><span>reparative M2 phenotype</span></strong></h4><ul><li><p><span>由IL4，IL-10，Glucocorticoids，Prostaglandins (PGs) 和 modulators of glucose and lipid metabolism诱导</span></p></li><li><p><span>具有分泌抗炎介质，生长因子，吞噬中性粒细胞的功能</span></p></li></ul><p><strong><span>有关为何在糖尿病伤口中巨噬细胞的M2转化容易失败，可能涉及到更多的信号通路调控，这里提供一点参考</span></strong></p><blockquote><p><span>2.2.3高血糖。高水平的血糖已被证实与糖尿病伤口的愈合有关。研究表明，当血糖水平高时，在伤口周围的组织中发现巨噬细胞显著减少，这可能导致炎症反应障碍。在高血糖水平的情况下，葡萄糖倾向于与蛋白质反应产生AGEs。目前，AGEs的积累被认为与糖尿病伤口愈合困难有关。AGEs可引起胶原蛋白的糖基化，形成不易降解的交联物质，最终导致血管生成和组织重塑的延迟。此外，AGEs可以促进ROS的产生并增加氧化应激，这可以影响胶原蛋白的合成并对伤口愈合产生不利影响。因此，控制AGEs的生长可以有效地促进血管生成和肉芽组织形成，这可以加速糖尿病伤口的愈合。</span></p><p><span>come from : </span><a href='https://pubs.rsc.org/en/content/articlehtml/2021/bm/d0bm01747g'><span>Advances of hydrogel dressings in diabetic wounds - Biomaterials Science (RSC Publishing) DOI:10.1039/D0BM01747G</span></a></p></blockquote><p>&nbsp;</p><h2 id='相关研究'><span>相关研究</span></h2><blockquote><p><span>The protocatechuic aldehyde hybridized collagen-based all-natural hydrogel exhibits good bioadhesive and antibacterial properties as well as reactive oxygen species scavenging ability. More importantly, the hydrogel is able to convert M1 macrophages into M2 macrophages without the need for any additional ingredients or external intervention. </span></p><p><span>Protocatechuic aldehyde (PA) is a natural compound derived from </span><em><span>Salvia miltiorrhiza</span></em><span> with an unique phenolic aldehyde structure compared to natural polyphenols such as tannic acid and gallic acid with only phenol structure. Therefore, it can form reversible Schiff base bonds with amino groups. Studies have shown that PA has good anti-inflammatory and antibacterial effects and has been used in clinical applications as an active ingredient in the coronary heart disease drug.PA has also been used in the treatment of chronic nephritis, vascular disease, etc., displaying good biocompatibility. In addition, PA contains catechol groups with the ability to scavenge ROS. These good properties make PA highly suitable for diabetic wound treatment. However, the mechanism by which PA modulates immune microenvironment at diabetic wounds to accelerate wound healing remains to be investigated. Meanwhile, fish gelatin (FG) was a good candidate of the hydrogel matrix, which contains arginine-glycine-aspartate (RGD) peptide sequence that can interact with integrin receptors so that it has the ability to promote anti-inflammatory transformation.</span></p><p><span>the introduction of PA endows the hydrogel with intrinsic chemical antibacterial effect and ROS scavenging ability, thus reducing inflammation of the wound. Because of these, the all-natural hydrogel is capable to promote the polarization of macrophages toward the M2 phenotype without adding any active ingredient. </span></p><p><span>come from : </span><a href='https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202206771'><span>All‐Natural Immunomodulatory Bioadhesive Hydrogel Promotes Angiogenesis and Diabetic Wound Healing by Regulating Macrophage Heterogeneity - Fu - 2023 - Advanced Science - Wiley Online Library</span></a></p></blockquote><h4 id='protocatechuic-aldehydepa'><strong><span>Protocatechuic aldehyde(PA)</span></strong></h4><ul><li><p><span>一种来源于丹参的天然化合物</span></p></li><li><p><span>良好的抗炎和抗菌作用</span></p></li><li><p><span>良好的生物相容性</span></p></li><li><p><span>PA含有邻苯二酚基团，具有抑制ROS的能力</span></p></li></ul><h4 id='fish-gelatin-fg'><strong><span>Fish gelatin (FG) </span></strong></h4><ul><li><p><span>含有精氨酸-甘氨酸-天冬氨酸（RGD）肽序列，可与整合素受体相互作用，具有促进抗炎转化的能力</span></p></li></ul><h4 id='fgmafgpa水凝胶'><strong><span>FGMA/FG/PA水凝胶</span></strong></h4><ul><li><p><span>由PA，FG，FGMA（交联剂）组成的全天然水凝胶</span></p></li><li><p><span>PA的引入赋予水凝胶内在的化学抗菌作用和ROS清除能力，从而减少伤口的炎症，从而促进巨噬细胞向M2表型极化，而无需添加任何活性成分</span></p></li></ul><p><strong><span>检验实验</span></strong></p><ul><li><p><span>是否具有促进细胞迁移和粘附的多孔结构：扫描电子显微镜（SEM）</span></p></li><li><p><span>机械性能：测试储能模量与损耗模量</span>
+<img src="./DW信号通路探寻.assets/image-20240510175008650.png" alt="image-20240510175008650" style="zoom:33%;" /></p></li><li><p><span>组织粘附强度：猪皮进行宏观粘附性能测试，搭接剪切和剥离实验</span></p></li><li><p><span>稳定性和生物降解性：测量溶胀比，浸入II型胶原酶溶液中研究体外降解</span></p></li><li><p><span>抗菌性能：平板计数法，FTIR光谱测试以验证相互作用的变化</span>
+<img src="./DW信号通路探寻.assets/image-20240510175658040.png" alt="image-20240510175658040" style="zoom: 25%;" /></p></li><li><p><span>生物相容性：L929细胞直接接触培养法和渗滤液培养法</span></p></li><li><p><span>抗ROS潜力：细胞内ROS清除率通过ROS指示剂二氯二氢荧光素二乙酸酯（DCFH-DA）测量</span></p></li><li><p><span>证明抗炎作用是通过免疫调节巨噬细胞转化实现的：Raw 264.7细胞与FGMA/FG和FGMA/FG/PA水凝胶共培养24小时来验证水凝胶的免疫调节能力，并且PBS处理组用作对照组。免疫荧光染色法检测M2巨噬细胞的特征性标志物CD 206的表达。用FGMA/FG/PA水凝胶处理LPS刺激的极化M1巨噬细胞后，M1巨噬细胞的百分比显著降低至21.60%，M2巨噬细胞的百分比增加至40.35%。</span></p></li><li><p><span>检测相关细胞因子的分泌：酶联免疫吸附试验（ELISA），使用不同水凝胶处理的巨噬细胞的CM培养人脐静脉内皮细胞</span>
+<img src="./DW信号通路探寻.assets/image-20240510180220897.png" alt="image-20240510180220897" style="zoom: 50%;" /></p></li><li><p><span>免疫调节和抗感染能力：建立金黄色葡萄球菌感染创面模型，对M1巨噬细胞和M2巨噬细胞进行免疫荧光染色，结果证实了FGMA/FG/PA水凝胶在体内调节巨噬细胞极化的能力。免疫调节能力在第一天通过血液样品的ELISA测试进一步验证。Masson三色染色还显示FGMA/FG/PA水凝胶可促进胶原蛋白形成和沉积</span></p></li></ul><p><strong><span>以上都是体外实验，下面是体内实验</span></strong></p><ul><li><p><span>愈合速度测试：</span></p><ul><li><p><span>通过向Sprague道利大鼠施用链脲佐菌素（STZ）并每天检测血糖的变化，当血糖水平始终&gt;16.65 mmol L −1 时，成功建立了糖尿病大鼠模型。</span></p></li><li><p><span>产生整个伤口（直径10 mm）并分别用PBS、FGMA/FG和FGMA/FG/PA水凝胶处理。</span></p></li><li><p><span>观察不同阶段的伤口愈合来评估FGMA/FG/PA水凝胶对加速糖尿病伤口愈合的作用：炎症、增殖和重塑</span></p></li><li><p><span>通过Masson三色染色观察新胶原的形成</span></p></li></ul></li><li><p><span>血管生成：免疫荧光检测</span></p></li><li><p><span>重塑阶段的胶原蛋白沉积、重塑和毛囊再生检测：Masson三色染色显示，与其它两组相比，FGMA/FG/PA水凝胶处理的伤口在第21天表现出更好的胶原蛋白沉积和毛囊再生。用免疫荧光染色进一步观察伤口毛囊和胶原结构的再生。</span></p><p>&nbsp;</p></li></ul><h2 id='总结'><span>总结</span></h2><ul><li><p><span>巨噬细胞从M1到M2的转化失败是DW伤口迟迟不能愈合的关键因素之一</span></p></li><li><p><span>IL4，IL-10，Glucocorticoids，Prostaglandins (PGs) 和 modulators of glucose and lipid metabolism诱导M2转化</span></p></li><li><p><span>pro-inflammatory cytokines，interferons (IFNs)，PAMPs 和 DAMPs诱导M1转化</span></p></li><li><p><span>抗菌作用，ROS清除能力或减少伤口炎症可能会诱导M2转化</span></p></li><li><p><span>相关检测手段：免疫荧光染色法可以检测M2巨噬细胞的特征性标志物CD206；酶联免疫吸附试验（ELISA）可以检测相关细胞因子的分泌；Masson三色染色可以检测胶原蛋白形成和沉积；平板计数法可以测量抗菌能力。</span></p></li></ul><p><strong><span>下一步：现在知道糖尿病伤口无法正常愈合是由于炎症期无法正常结束导致的，而炎症期无法正常结束的一个重要原因是巨噬细胞从促炎表型向修复表型的转化失败，一项水凝胶敷料的研究证明通过清除ROS和抗菌作用减少炎症可以促进巨噬细胞的转化，并且有助于糖尿病伤口的愈合。但是有关巨噬细胞的转化调控机制并没有描述清楚，而且该研究的转化率并不算高，接下来可以探明巨噬细胞的转化调控机制和更加高转化率的水凝胶方案</span></strong></p><p>&nbsp;</p></div></div>
+</body>
+</html>
